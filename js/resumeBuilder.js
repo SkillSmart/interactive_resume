@@ -24,12 +24,13 @@ var bio = {
 		"email": "frank.fichtenmueller@outlook.com",
 		"github": "ffichtenmueller",
 		"twitter": "@ffichtenmueller",
-		"location": "Vienna, Austria" 
+		"location": "Vienna, Austria",
+		"blog": "skillsmart.io/blog" 
 	},
 	"welcomeMsg": "Developing interactive workflows on the web to make use of \
 	data driven Decissionmaking in the Field of HR",
 	"skills": skills,
-	"bioPic": "" 
+	"bioPic": "http://placehold.it/150x150" 
 }
 
 var work = {
@@ -174,12 +175,47 @@ var education = {
 /* Setting the display properties for the infórmation sections*/
 
 bio.display = function() {
+	
+	
+
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
+
+	var formatedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	$("#header").prepend(formatedBioPic);
 	
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").append(formattedRole);	
+
+
+
+	var formatedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(formatedMobile);
+
+	var formatedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$(".flex-item:last").append(formatedEmail);
+
+	var formatedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+	$(".flex-item:last").append(formatedBlog);
+
+	var formatedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$(".flex-item:last").append(formatedTwitter);
+
+	var formatedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$(".flex-item:last").append(formatedGithub);
+
+	
+
+	
+
 }
+
+
+	
+
+
+
+
 
 work.display = function() {
 	for(job in work.jobs){
